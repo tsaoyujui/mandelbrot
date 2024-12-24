@@ -47,7 +47,7 @@ python mandelbrot_zoom.py
 
 - **Matplotlib Documentation:** https://matplotlib.org
 - **NumPy Documentation:** https://numpy.org
-- Used **ChatGPT** for program logic design and debugging.
+- **GitHub references** https://github.com/danyaal/mandelbrot
 
 ---
 
@@ -69,7 +69,7 @@ This version supports both static image generation and interactive exploration, 
 
 Feel free to suggest improvements or further optimizations!
 
-**Developer:** [Your Name]
+**Developer:** [Yu-Jui, Tsao]
 **Version:** 1.0
-**Date:** [Insert Date]
+**Date:** [20241225]
 
