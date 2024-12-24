@@ -37,7 +37,7 @@ def animate_zoom(xmin, xmax, ymin, ymax, zoom_center, zoom_levels, width=800, he
     
     fig, ax = plt.subplots(figsize=(10, 10))
     ax.axis('off')
-    img = ax.imshow(frames[0][0], cmap='hot', origin='lower', extent=(xmin, xmax, ymin, ymax))
+    img = ax.imshow(frames[0][0], cmap='Blues', origin='lower', extent=(xmin, xmax, ymin, ymax))
     
     def update_frame(frame):
         img.set_data(frames[frame][0])
@@ -45,8 +45,8 @@ def animate_zoom(xmin, xmax, ymin, ymax, zoom_center, zoom_levels, width=800, he
         ax.set_title(f'Zoom Level {frame + 1}')
     
     ani = animation.FuncAnimation(fig, update_frame, frames=len(frames), interval=200, repeat=False)
-    plt.show(block=False) 
-    return fig, ax, ani, frames[-1]  
+    plt.show(block=False)
+    return fig, ax, ani, frames[-1]
 
 def on_key(event, zoom_center, ax, width, height, max_iter, zoom_levels, frames, final_frame):
     step = 0.1
@@ -72,7 +72,7 @@ def on_key(event, zoom_center, ax, width, height, max_iter, zoom_levels, frames,
     image = generate_mandelbrot(current_xmin, current_xmax, current_ymin, current_ymax, width, height, max_iter)
     
     ax.clear()
-    ax.imshow(image, extent=(current_xmin, current_xmax, current_ymin, current_ymax), cmap='hot', origin='lower')
+    ax.imshow(image, extent=(current_xmin, current_xmax, current_ymin, current_ymax), cmap='Blues', origin='lower')
     ax.set_title(f'Mandelbrot Set - Zoom Center: ({cx:.3f}, {cy:.3f})')
     ax.axis('off')
     plt.draw()
@@ -82,13 +82,12 @@ if __name__ == '__main__':
     ymin, ymax = -1.5, 1.5
     width, height = 800, 800
     max_iter = 100
-    zoom_center = (-0.1, 0.9)
-    zoom_levels = 20
-    
+    zoom_center = (-0.37, 0.66)
+    zoom_levels = 200
     
     plt.figure(figsize=(10, 10))
     image = generate_mandelbrot(xmin, xmax, ymin, ymax, width, height, max_iter)
-    plt.imshow(image, extent=(xmin, xmax, ymin, ymax), cmap='hot', origin='lower')
+    plt.imshow(image, extent=(xmin, xmax, ymin, ymax), cmap='PuBu_r', origin='lower')
     plt.zcolorbar(label='Iterations')
     plt.title('Mandelbrot Set')
     plt.show()
